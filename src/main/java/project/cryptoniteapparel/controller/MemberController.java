@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/member")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:3000/")
 public class MemberController {
 
     private final MemberService memberService;

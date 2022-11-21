@@ -1,6 +1,7 @@
 package project.cryptoniteapparel.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +27,6 @@ public class Product {
     private Integer quantity;
 
     @ManyToMany(mappedBy = "productsOwned")
-    @JsonBackReference
+    @JsonIgnore
     private List<Member> ownedByMember;
 }

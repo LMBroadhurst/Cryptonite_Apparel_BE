@@ -31,7 +31,6 @@ public class Member {
             joinColumns = @JoinColumn(name = "member_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    @JsonManagedReference
     private List<Product> productsOwned;
 
 }

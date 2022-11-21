@@ -44,7 +44,7 @@ public class ProductService {
         }
 
         productRepo.deleteById(id);
-        return "Member with id " + id + " has been deleted.";
+        return "Product with id " + id + " has been deleted.";
     }
 
 //    Put Mapping
