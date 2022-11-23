@@ -55,16 +55,16 @@ public class MemberService {
         Member currentMemberDetails = memberRepo.findById(id).get();
 
         member.setId(id);
-        if (member.getEmail() == null) {
+        if (member.getEmail() == null || member.getEmail().length() == 0) {
             member.setEmail(currentMemberDetails.getEmail());
         }
-        if (member.getFirstName() == null) {
+        if (member.getFirstName() == null || member.getFirstName().length() == 0) {
             member.setFirstName(currentMemberDetails.getFirstName());
         }
-        if (member.getLastName() == null) {
+        if (member.getLastName() == null || member.getLastName().length() == 0) {
             member.setLastName(currentMemberDetails.getLastName());
         }
-        if (member.getPassword() == null) {
+        if (member.getPassword() == null || member.getPassword().length() == 0) {
             member.setPassword(currentMemberDetails.getPassword());
         }
         if (member.getProductsOwned() == null) {
