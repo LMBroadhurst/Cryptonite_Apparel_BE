@@ -62,15 +62,15 @@ public class ProductService {
         if (product.getDescription() == null) {
             product.setDescription(currentProductDetails.getDescription());
         }
-        if (product.getQuantity() == null) {
-            product.setQuantity(currentProductDetails.getQuantity());
-        }
-        if (product.getSize() == null) {
-            product.setSize(currentProductDetails.getSize());
-        }
-        if (product.getOwnedByMember() == null) {
-            product.setOwnedByMember(currentProductDetails.getOwnedByMember());
-        }
+//        if (product.getQuantity() == null) {
+//            product.setQuantity(currentProductDetails.getQuantity());
+//        }
+//        if (product.getSize() == null) {
+//            product.setSize(currentProductDetails.getSize());
+//        }
+//        if (product.getOwnedByMember() == null) {
+//            product.setOwnedByMember(currentProductDetails.getOwnedByMember());
+//        }
 
         return productRepo.save(product);
     }

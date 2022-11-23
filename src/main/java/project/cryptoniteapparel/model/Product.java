@@ -1,11 +1,11 @@
 package project.cryptoniteapparel.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import project.cryptoniteapparel.model.objects.SizeAndQuantity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,11 +22,13 @@ public class Product {
     private Long id;
     private String name;
     private Double price;
-    private String size;
     private String description;
-    private Integer quantity;
 
-    @ManyToMany(mappedBy = "productsOwned")
-    @JsonIgnore
-    private List<Member> ownedByMember;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "products_contained_in_orders",
+            joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "orderId")
+    )
+    private List<Order> presentInOrders;
 }

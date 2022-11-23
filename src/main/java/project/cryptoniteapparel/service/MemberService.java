@@ -67,9 +67,9 @@ public class MemberService {
         if (member.getPassword() == null || member.getPassword().length() == 0) {
             member.setPassword(currentMemberDetails.getPassword());
         }
-        if (member.getProductsOwned() == null) {
-            member.setProductsOwned(currentMemberDetails.getProductsOwned());
-        }
+//        if (member.getProductsOwned() == null) {
+//            member.setProductsOwned(currentMemberDetails.getProductsOwned());
+//        }
         if (member.getSubscribedToInsights() == null) {
             member.setSubscribedToInsights(currentMemberDetails.getSubscribedToInsights());
         }
@@ -83,9 +83,9 @@ public class MemberService {
         Member member = memberRepo.findById(memberId).get();
         Product product = productRepo.findById(productId).get();
 
-        List<Product> ownedProducts = member.getProductsOwned();
-        ownedProducts.add(product);
-        member.setProductsOwned(ownedProducts);
+//        List<Product> ownedProducts = member.getProductsOwned();
+//        ownedProducts.add(product);
+//        member.setProductsOwned(ownedProducts);
         memberRepo.save(member);
 
         return member;

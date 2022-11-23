@@ -1,6 +1,5 @@
 package project.cryptoniteapparel.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,17 +13,18 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Member {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String password;
-    private Boolean subscribedToInsights;
+    private Long orderId;
+    private Integer totalCost;
+    private Boolean orderStatus;
 
-    @OneToMany(mappedBy = "member")
-    private List<Order> allOrders;
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToMany(mappedBy = "presentInOrders")
+    private List<Product> products;
 }
